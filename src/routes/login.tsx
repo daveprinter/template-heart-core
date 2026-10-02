@@ -35,27 +35,28 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function submit(e: React.FormEvent): Promise<unknown> {
+  async function submit(e: React.FormEvent): Promise<void> {
     e.preventDefault();
     setLoading(true);
     if (mode === "signup") {
       const { data, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/onboarding` } });
       setLoading(false);
-      if (error) return toast.error(error.message);
-      if (!data.session) return toast.success("Check your email to confirm your account, then sign in.");
-      return goAfterLogin(navigate);
+      if (error) { toast.error(error.message); return; }
+      if (!data.session) { toast.success("Check your email to confirm your account, then sign in."); return; }
+      await goAfterLogin(navigate);
+      return;
     }
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
-    if (error) return toast.error(error.message);
-    goAfterLogin(navigate);
+    if (error) { toast.error(error.message); return; }
+    await goAfterLogin(navigate);
   }
 
-  async function google(): Promise<unknown> {
+  async function google(): Promise<void> {
     const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" });
-    if (result.error) return toast.error(String(result.error.message ?? result.error));
+    if (result.error) { toast.error(String(result.error.message ?? result.error)); return; }
     if (result.redirected) return;
-    goAfterLogin(navigate);
+    await goAfterLogin(navigate);
   }
 
   return (

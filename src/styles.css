@@ -58,41 +58,41 @@
 :root {
   --radius: 0.125rem;
 
-  /* Editorial Luxe palette — near-white paper, slate ink, hairline borders */
-  --background: #fcfcfc;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #0f172a;
-  --primary-foreground: #fcfcfc;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
+  /* Crisp white-and-blue palette with dark editorial typography */
+  --background: oklch(0.995 0.003 250);
+  --foreground: oklch(0.2 0.03 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.03 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.03 255);
+  --primary: oklch(0.56 0.2 255);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.025 250);
+  --secondary-foreground: oklch(0.31 0.11 255);
+  --muted: oklch(0.975 0.012 250);
+  --muted-foreground: oklch(0.48 0.04 255);
+  --accent: oklch(0.92 0.055 250);
+  --accent-foreground: oklch(0.36 0.15 255);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #fcfcfc;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0f172a;
-  --chart-1: #0f172a;
-  --chart-2: #475569;
-  --chart-3: #94a3b8;
-  --chart-4: #cbd5e1;
-  --chart-5: #e2e8f0;
-  --sidebar: #fcfcfc;
-  --sidebar-foreground: #0f172a;
-  --sidebar-primary: #0f172a;
-  --sidebar-primary-foreground: #fcfcfc;
-  --sidebar-accent: #f1f5f9;
-  --sidebar-accent-foreground: #0f172a;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #0f172a;
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.025 250);
+  --input: oklch(0.9 0.025 250);
+  --ring: oklch(0.56 0.2 255);
+  --chart-1: oklch(0.56 0.2 255);
+  --chart-2: oklch(0.65 0.17 220);
+  --chart-3: oklch(0.68 0.16 155);
+  --chart-4: oklch(0.72 0.17 75);
+  --chart-5: oklch(0.62 0.19 20);
+  --sidebar: oklch(0.985 0.01 250);
+  --sidebar-foreground: oklch(0.2 0.03 255);
+  --sidebar-primary: oklch(0.56 0.2 255);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.92 0.055 250);
+  --sidebar-accent-foreground: oklch(0.36 0.15 255);
+  --sidebar-border: oklch(0.9 0.025 250);
+  --sidebar-ring: oklch(0.56 0.2 255);
   --whatsapp: oklch(0.72 0.17 150);
-  --whatsapp-foreground: #ffffff;
+  --whatsapp-foreground: oklch(1 0 0);
   --success: oklch(0.6 0.15 150);
 }
 

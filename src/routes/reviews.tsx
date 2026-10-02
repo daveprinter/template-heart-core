@@ -42,11 +42,11 @@ function ReviewsPage() {
   const load = () => supabase.from("reviews").select("*").order("created_at", { ascending: false }).then(({ data }) => setReviews((data as Review[]) ?? []));
   useEffect(() => { load(); }, []);
 
-  async function submit(e: React.FormEvent): Promise<unknown> {
+  async function submit(e: React.FormEvent): Promise<void> {
     e.preventDefault();
     if (!user) return;
     const { error } = await supabase.from("reviews").insert({ user_id: user.id, name, rating, comment });
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Thanks for your review!");
     setComment(""); load();
   }
