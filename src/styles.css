@@ -60,11 +60,11 @@
 
   /* Crisp white-and-blue palette with dark editorial typography */
   --background: oklch(0.995 0.003 250);
-  --foreground: oklch(0.2 0.03 255);
+  --foreground: oklch(0.16 0.035 255);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.03 255);
+  --card-foreground: oklch(0.16 0.035 255);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.03 255);
+  --popover-foreground: oklch(0.16 0.035 255);
   --primary: oklch(0.56 0.2 255);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.025 250);
