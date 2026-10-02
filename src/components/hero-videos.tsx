@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import v1 from "../../public/videos/hero-1.mp4.asset.json";
-import v2 from "../../public/videos/hero-2.mp4.asset.json";
-import v3 from "../../public/videos/hero-3.mp4.asset.json";
+import v1 from "@/assets/hero-1.mp4.asset.json";
+import v2 from "@/assets/hero-2.mp4.asset.json";
+import v3 from "@/assets/hero-3.mp4.asset.json";
 
 const videos = [v1.url, v2.url, v3.url];
 

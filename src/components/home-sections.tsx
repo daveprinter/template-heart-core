@@ -34,11 +34,6 @@ const testimonials = [
   ["The dashboard alone is worth it. I finally know what our ad spend returns.", "David K.", "CMO, Loop Ledger"],
   ["Our TikTok launch did 5M reach in a quarter. They just get culture.", "Sofia R.", "Head of Brand, Kickkit"],
 ];
-const plans = [
-  { name: "Starter", price: "$490", desc: "For local businesses", items: ["2 platforms", "12 posts / month", "Monthly report", "Client dashboard"] },
-  { name: "Growth", price: "$1,290", desc: "Most popular", items: ["4 platforms", "30 posts + 4 reels", "Ads management", "Weekly reporting", "Content calendar"], featured: true },
-  { name: "Enterprise", price: "Custom", desc: "For multi-brand teams", items: ["All platforms", "Unlimited content", "Influencer campaigns", "Dedicated team", "Team roles & approvals"] },
-];
 const faqs = [
   ["How quickly will I see results?", "Most clients see engagement lift within 30 days and lead growth within 60–90 days."],
   ["Do I need a long contract?", "No. All plans are month-to-month with 30 days' notice."],
@@ -93,24 +88,6 @@ export function HomeSections() {
               <blockquote className="font-display text-2xl leading-snug">“{q}”</blockquote>
               <figcaption className="mt-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">{n} — {r}</figcaption>
             </figure>
-          ))}
-        </div>
-      </Section>
-
-      <Section label="Pricing" title="Simple monthly plans">
-        <div className="grid gap-8 pt-12 md:grid-cols-3">
-          {plans.map((p) => (
-            <div key={p.name} className={`border p-8 ${p.featured ? "border-foreground bg-primary text-primary-foreground" : "border-border bg-card"}`}>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] opacity-70">{p.desc}</p>
-              <h3 className="mt-3 font-display text-3xl">{p.name}</h3>
-              <p className="mt-4 font-display text-5xl">{p.price}<span className="text-base opacity-60">{p.price !== "Custom" && " /mo"}</span></p>
-              <ul className="mt-6 space-y-2 text-sm">
-                {p.items.map((i) => <li key={i}>— {i}</li>)}
-              </ul>
-              <a href="/contact" className={`mt-8 inline-block w-full border px-6 py-3 text-center text-[11px] font-semibold uppercase tracking-[0.2em] ${p.featured ? "border-primary-foreground" : "border-border"}`}>
-                {p.price === "Custom" ? "Request quote" : "Get started"}
-              </a>
-            </div>
           ))}
         </div>
       </Section>
