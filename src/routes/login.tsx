@@ -35,7 +35,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  async function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent): Promise<unknown> {
     e.preventDefault();
     setLoading(true);
     if (mode === "signup") {
@@ -51,7 +51,7 @@ function LoginPage() {
     goAfterLogin(navigate);
   }
 
-  async function google() {
+  async function google(): Promise<unknown> {
     const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" });
     if (result.error) return toast.error(String(result.error.message ?? result.error));
     if (result.redirected) return;
