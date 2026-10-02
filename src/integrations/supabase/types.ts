@@ -139,6 +139,7 @@ export type Database = {
           followers: number | null
           id: string
           last_synced_at: string | null
+          oauth_state: string | null
           platform: string
           status: string
           user_id: string
@@ -150,6 +151,7 @@ export type Database = {
           followers?: number | null
           id?: string
           last_synced_at?: string | null
+          oauth_state?: string | null
           platform: string
           status?: string
           user_id: string
@@ -161,6 +163,7 @@ export type Database = {
           followers?: number | null
           id?: string
           last_synced_at?: string | null
+          oauth_state?: string | null
           platform?: string
           status?: string
           user_id?: string
