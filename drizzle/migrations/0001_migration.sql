@@ -1,0 +1,1 @@
+ALTER TABLE public.social_accounts ADD COLUMN oauth_state text;

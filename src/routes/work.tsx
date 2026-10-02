@@ -63,9 +63,9 @@ function WorkPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-24 md:px-8">
-        <div className="grid gap-x-16 gap-y-24 md:grid-cols-2">
+        <div className="grid gap-10 md:grid-cols-3">
           {cases.map((c, i) => (
-            <article key={c.title} className={i % 2 === 1 ? "md:mt-24" : ""}>
+            <article key={c.title} className="group">
               <div className="aspect-[4/5] w-full overflow-hidden border border-border bg-muted">
                 <img
                   src={c.img}
@@ -73,7 +73,7 @@ function WorkPage() {
                   loading="lazy"
                   width={1024}
                   height={768}
-                  className="h-full w-full object-cover grayscale transition-all duration-1000 ease-in-out group-hover:scale-105 group-hover:grayscale-0"
+                  className="h-full w-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
                 />
               </div>
               <div className="mt-8 flex items-baseline justify-between">

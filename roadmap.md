@@ -1,0 +1,16 @@
+# Roadmap
+- [ ] Remove pricing plans section
+- [ ] Nav: Home before Services; hamburger sidebar with all sections
+- [ ] 3 bundled looping hero videos
+- [ ] Work cards in colour, aligned
+- [ ] 22 social services list on home + Services; detail pages with WhatsApp quote
+- [ ] WhatsApp contact button/icon
+- [ ] Social Media Marketing Services tab
+- [ ] Account Integration page (OAuth architecture) — real OAuth needs platform app credentials
+- [ ] Content Management (posts, images, videos, captions, hashtags)
+- [ ] AI assistant
+- [ ] Advertising Management (ad examples)
+- [ ] Reviews
+- [ ] Business Onboarding wizard (after login)
+- [ ] Competitor Analysis
+- [ ] Placeholders: Analytics & Reports, Campaign Management, Client Communication

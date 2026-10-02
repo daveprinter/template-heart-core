@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav, SiteFooter, ArrowIcon } from "@/components/site-chrome";
 import { HeroVideos } from "@/components/hero-videos";
 import { HomeSections } from "@/components/home-sections";
+import { services as allServices } from "@/lib/services";
 import workBloom from "@/assets/work-bloom.jpg";
 import workLoop from "@/assets/work-loop.jpg";
 import workKickkit from "@/assets/work-kickkit.jpg";
@@ -110,6 +111,26 @@ function HomePage() {
         </div>
       </section>
 
+      {/* SOCIAL MEDIA MARKETING SERVICES */}
+      <section className="border-y border-border bg-muted">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:px-8">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.4em] text-muted-foreground">Social media marketing services</span>
+          <h2 className="mt-4 font-display text-4xl md:text-6xl">Everything your brand needs online</h2>
+          <div className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {allServices.map((s, i) => (
+              <Link key={s.slug} to="/service/$slug" params={{ slug: s.slug }} className="group flex items-start justify-between gap-4 bg-background p-6 transition-colors hover:bg-card">
+                <div>
+                  <span className="text-[10px] text-muted-foreground">{String(i + 1).padStart(2, "0")}/</span>
+                  <h3 className="mt-2 font-display text-2xl">{s.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{s.short}</p>
+                </div>
+                <ArrowIcon className="mt-8 h-4 w-4 shrink-0" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SELECTED WORK */}
       <section className="mx-auto max-w-6xl px-6 pb-24 md:px-8">
         <div className="flex items-end justify-between gap-6 border-b border-border pb-8">
@@ -118,9 +139,9 @@ function HomePage() {
             View all
           </Link>
         </div>
-        <div className="mt-16 grid gap-x-16 gap-y-20 md:grid-cols-2">
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
           {work.map((w, i) => (
-            <Link key={w.title} to="/work" className={`group block ${i % 2 === 1 ? "md:mt-24" : ""}`}>
+            <Link key={w.title} to="/work" className="group block">
               <div className="aspect-[4/5] w-full overflow-hidden border border-border bg-muted">
                 <img
                   src={w.img}
@@ -128,7 +149,7 @@ function HomePage() {
                   loading="lazy"
                   width={1024}
                   height={768}
-                  className="h-full w-full object-cover grayscale transition-all duration-700 ease-in-out group-hover:scale-105 group-hover:grayscale-0"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
                 />
               </div>
               <div className="mt-6 flex items-baseline justify-between">
