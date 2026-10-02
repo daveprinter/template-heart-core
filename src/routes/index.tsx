@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SiteNav, SiteFooter, ArrowIcon } from "@/components/site-chrome";
+import { SiteNav, SiteFooter, ArrowIcon, appTabs } from "@/components/site-chrome";
 import { HeroVideos } from "@/components/hero-videos";
 import { HomeSections } from "@/components/home-sections";
 import { services as allServices } from "@/lib/services";
+import { Cable, FilePenLine, Megaphone, MessagesSquare, Rocket, ScanSearch } from "lucide-react";
 import workBloom from "@/assets/work-bloom.jpg";
 import workLoop from "@/assets/work-loop.jpg";
 import workKickkit from "@/assets/work-kickkit.jpg";
@@ -40,6 +41,8 @@ const work = [
   { img: workKickkit, tag: "Social engine", title: "Kickkit Sneakers", result: "5M organic reach in one quarter." },
 ];
 
+const workspaceIcons = [Cable, FilePenLine, Megaphone, MessagesSquare, Rocket, ScanSearch];
+
 const cta = "group relative inline-flex items-center gap-3 bg-primary px-9 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-opacity hover:opacity-90";
 const ghost = "inline-flex items-center gap-3 border border-border px-9 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-foreground hover:text-background";
 
@@ -69,6 +72,37 @@ function HomePage() {
             See our work
           </Link>
         </div>
+        </div>
+      </section>
+
+      {/* WORKSPACE SHORTCUTS */}
+      <section className="border-y border-border bg-secondary">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-8">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.4em] text-primary">Your workspace</span>
+              <h2 className="mt-3 font-display text-4xl md:text-5xl">Choose where to begin</h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">Manage your channels, content, campaigns, reviews and business growth from one place.</p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {appTabs.map((tab, index) => {
+              const Icon = workspaceIcons[index];
+              return (
+                <Link
+                  key={tab.to}
+                  to={tab.to}
+                  className="group flex min-h-40 flex-col justify-between border border-border bg-card p-6 transition-colors hover:border-primary hover:bg-accent"
+                >
+                  <div className="flex items-start justify-between">
+                    {Icon ? <Icon className="size-7 text-primary" strokeWidth={1.5} /> : null}
+                    <ArrowIcon className="size-4 text-primary" />
+                  </div>
+                  <h3 className="mt-8 max-w-56 font-display text-2xl leading-tight">{tab.label}</h3>
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </section>
 
