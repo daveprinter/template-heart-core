@@ -14,8 +14,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AdvertisingRouteImport } from './routes/advertising'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as CampaignsRouteImport } from './routes/campaigns'
+import { Route as CompetitorsRouteImport } from './routes/competitors'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ContentRouteImport } from './routes/content'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MessagesRouteImport } from './routes/messages'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
@@ -50,14 +53,29 @@ const CampaignsRoute = CampaignsRouteImport.update({
   path: '/campaigns',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompetitorsRoute = CompetitorsRouteImport.update({
+  id: '/competitors',
+  path: '/competitors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContentRoute = ContentRouteImport.update({
+  id: '/content',
+  path: '/content',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -107,8 +125,11 @@ export interface FileRoutesByFullPath {
   '/advertising': typeof AdvertisingRoute
   '/analytics': typeof AnalyticsRoute
   '/campaigns': typeof CampaignsRoute
+  '/competitors': typeof CompetitorsRoute
   '/contact': typeof ContactRoute
+  '/content': typeof ContentRoute
   '/dashboard': typeof DashboardRoute
+  '/integrations': typeof IntegrationsRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
   '/onboarding': typeof OnboardingRoute
@@ -124,8 +145,11 @@ export interface FileRoutesByTo {
   '/advertising': typeof AdvertisingRoute
   '/analytics': typeof AnalyticsRoute
   '/campaigns': typeof CampaignsRoute
+  '/competitors': typeof CompetitorsRoute
   '/contact': typeof ContactRoute
+  '/content': typeof ContentRoute
   '/dashboard': typeof DashboardRoute
+  '/integrations': typeof IntegrationsRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
   '/onboarding': typeof OnboardingRoute
@@ -142,8 +166,11 @@ export interface FileRoutesById {
   '/advertising': typeof AdvertisingRoute
   '/analytics': typeof AnalyticsRoute
   '/campaigns': typeof CampaignsRoute
+  '/competitors': typeof CompetitorsRoute
   '/contact': typeof ContactRoute
+  '/content': typeof ContentRoute
   '/dashboard': typeof DashboardRoute
+  '/integrations': typeof IntegrationsRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
   '/onboarding': typeof OnboardingRoute
@@ -161,8 +188,11 @@ export interface FileRouteTypes {
     | '/advertising'
     | '/analytics'
     | '/campaigns'
+    | '/competitors'
     | '/contact'
+    | '/content'
     | '/dashboard'
+    | '/integrations'
     | '/login'
     | '/messages'
     | '/onboarding'
@@ -178,8 +208,11 @@ export interface FileRouteTypes {
     | '/advertising'
     | '/analytics'
     | '/campaigns'
+    | '/competitors'
     | '/contact'
+    | '/content'
     | '/dashboard'
+    | '/integrations'
     | '/login'
     | '/messages'
     | '/onboarding'
@@ -195,8 +228,11 @@ export interface FileRouteTypes {
     | '/advertising'
     | '/analytics'
     | '/campaigns'
+    | '/competitors'
     | '/contact'
+    | '/content'
     | '/dashboard'
+    | '/integrations'
     | '/login'
     | '/messages'
     | '/onboarding'
@@ -213,8 +249,11 @@ export interface RootRouteChildren {
   AdvertisingRoute: typeof AdvertisingRoute
   AnalyticsRoute: typeof AnalyticsRoute
   CampaignsRoute: typeof CampaignsRoute
+  CompetitorsRoute: typeof CompetitorsRoute
   ContactRoute: typeof ContactRoute
+  ContentRoute: typeof ContentRoute
   DashboardRoute: typeof DashboardRoute
+  IntegrationsRoute: typeof IntegrationsRoute
   LoginRoute: typeof LoginRoute
   MessagesRoute: typeof MessagesRoute
   OnboardingRoute: typeof OnboardingRoute
@@ -262,6 +301,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/competitors': {
+      id: '/competitors'
+      path: '/competitors'
+      fullPath: '/competitors'
+      preLoaderRoute: typeof CompetitorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -269,11 +315,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/content': {
+      id: '/content'
+      path: '/content'
+      fullPath: '/content'
+      preLoaderRoute: typeof ContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -341,8 +401,11 @@ const rootRouteChildren: RootRouteChildren = {
   AdvertisingRoute: AdvertisingRoute,
   AnalyticsRoute: AnalyticsRoute,
   CampaignsRoute: CampaignsRoute,
+  CompetitorsRoute: CompetitorsRoute,
   ContactRoute: ContactRoute,
+  ContentRoute: ContentRoute,
   DashboardRoute: DashboardRoute,
+  IntegrationsRoute: IntegrationsRoute,
   LoginRoute: LoginRoute,
   MessagesRoute: MessagesRoute,
   OnboardingRoute: OnboardingRoute,
