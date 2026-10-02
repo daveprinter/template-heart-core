@@ -11,12 +11,15 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdvertisingRouteImport } from './routes/advertising'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as CampaignsRouteImport } from './routes/campaigns'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SocialMediaMarketingRouteImport } from './routes/social-media-marketing'
 import { Route as WorkRouteImport } from './routes/work'
@@ -30,6 +33,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvertisingRoute = AdvertisingRouteImport.update({
+  id: '/advertising',
+  path: '/advertising',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnalyticsRoute = AnalyticsRouteImport.update({
@@ -62,6 +70,16 @@ const MessagesRoute = MessagesRouteImport.update({
   path: '/messages',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -86,12 +104,15 @@ const ServiceSlugRoute = ServiceSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advertising': typeof AdvertisingRoute
   '/analytics': typeof AnalyticsRoute
   '/campaigns': typeof CampaignsRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
+  '/onboarding': typeof OnboardingRoute
+  '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/social-media-marketing': typeof SocialMediaMarketingRoute
   '/work': typeof WorkRoute
@@ -100,12 +121,15 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advertising': typeof AdvertisingRoute
   '/analytics': typeof AnalyticsRoute
   '/campaigns': typeof CampaignsRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
+  '/onboarding': typeof OnboardingRoute
+  '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/social-media-marketing': typeof SocialMediaMarketingRoute
   '/work': typeof WorkRoute
@@ -115,12 +139,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/advertising': typeof AdvertisingRoute
   '/analytics': typeof AnalyticsRoute
   '/campaigns': typeof CampaignsRoute
   '/contact': typeof ContactRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
   '/messages': typeof MessagesRoute
+  '/onboarding': typeof OnboardingRoute
+  '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRoute
   '/social-media-marketing': typeof SocialMediaMarketingRoute
   '/work': typeof WorkRoute
@@ -131,12 +158,15 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/advertising'
     | '/analytics'
     | '/campaigns'
     | '/contact'
     | '/dashboard'
     | '/login'
     | '/messages'
+    | '/onboarding'
+    | '/reviews'
     | '/services'
     | '/social-media-marketing'
     | '/work'
@@ -145,12 +175,15 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/advertising'
     | '/analytics'
     | '/campaigns'
     | '/contact'
     | '/dashboard'
     | '/login'
     | '/messages'
+    | '/onboarding'
+    | '/reviews'
     | '/services'
     | '/social-media-marketing'
     | '/work'
@@ -159,12 +192,15 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/advertising'
     | '/analytics'
     | '/campaigns'
     | '/contact'
     | '/dashboard'
     | '/login'
     | '/messages'
+    | '/onboarding'
+    | '/reviews'
     | '/services'
     | '/social-media-marketing'
     | '/work'
@@ -174,12 +210,15 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdvertisingRoute: typeof AdvertisingRoute
   AnalyticsRoute: typeof AnalyticsRoute
   CampaignsRoute: typeof CampaignsRoute
   ContactRoute: typeof ContactRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
   MessagesRoute: typeof MessagesRoute
+  OnboardingRoute: typeof OnboardingRoute
+  ReviewsRoute: typeof ReviewsRoute
   ServicesRoute: typeof ServicesRoute
   SocialMediaMarketingRoute: typeof SocialMediaMarketingRoute
   WorkRoute: typeof WorkRoute
@@ -200,6 +239,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advertising': {
+      id: '/advertising'
+      path: '/advertising'
+      fullPath: '/advertising'
+      preLoaderRoute: typeof AdvertisingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/analytics': {
@@ -244,6 +290,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MessagesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -278,12 +338,15 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdvertisingRoute: AdvertisingRoute,
   AnalyticsRoute: AnalyticsRoute,
   CampaignsRoute: CampaignsRoute,
   ContactRoute: ContactRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
   MessagesRoute: MessagesRoute,
+  OnboardingRoute: OnboardingRoute,
+  ReviewsRoute: ReviewsRoute,
   ServicesRoute: ServicesRoute,
   SocialMediaMarketingRoute: SocialMediaMarketingRoute,
   WorkRoute: WorkRoute,
