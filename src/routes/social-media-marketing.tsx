@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/page-shell";
 import { platformServices } from "@/lib/services";
-import { ServiceList } from "./services";
+import { ServiceList } from "@/components/service-list";
 
 export const Route = createFileRoute("/social-media-marketing")({
   head: () => ({
