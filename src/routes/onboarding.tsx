@@ -85,22 +85,23 @@ function Wizard({ user }: { user: User }) {
     { title: "Brand & competition", body: <div className="grid gap-6">{area("competitors", "Competitors", "Names or social links, one per line")}{text("brand_colors", "Brand colours", "e.g. Navy #0F172A, Coral #FF6B5B")}{area("description", "Business description")}</div> },
   ];
 
-  async function save(done: boolean) {
+  async function save(done: boolean): Promise<unknown> {
     setSaving(true);
     const { error } = await supabase.from("business_profiles").upsert({ user_id: user.id, ...f, completed: done, updated_at: new Date().toISOString() });
     setSaving(false);
     if (error) return toast.error(error.message);
     if (done) { toast.success("Onboarding complete!"); navigate({ to: "/dashboard" }); }
+    return null;
   }
 
   return (
     <div className="border border-border bg-card p-8 md:p-10">
       <div className="flex items-center justify-between">
         <p className={labelCls}>Step {step + 1} of {steps.length}</p>
-        <p className="font-display text-2xl">{steps[step].title}</p>
+        <p className="font-display text-2xl">{steps[step]?.title}</p>
       </div>
       <Progress value={((step + 1) / steps.length) * 100} className="mt-4 h-1" />
-      <div className="mt-8">{steps[step].body}</div>
+      <div className="mt-8">{steps[step]?.body}</div>
       <div className="mt-10 flex justify-between gap-3">
         <button className={btnGhost} disabled={step === 0} onClick={() => setStep(step - 1)}>Back</button>
         {step < steps.length - 1 ? (
